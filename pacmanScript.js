@@ -12,17 +12,17 @@ let f2;
 let timer1 = 0;
 const tf = 3;
 const startAngle = 0;
-const finalAngle = 2 * Math.PI - 2;
+const finalAngle = 2 * Math.PI;
 const area = 9 * 10000;
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(2000, 500);
   f1 = (theta) => {
     return Math.pow(area / ((2 * Math.PI - theta) / 2), 0.5)
   };
   f2 = linearPathGenerator([0, startAngle], [tf, finalAngle]);
 }
 function draw() {
-  if (timer1 <= tf) {
+  if (timer1 <= 2.99) {
     clear();
     fill(255, 255, 0);
     const newangle = f2(timer1);
