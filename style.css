@@ -1,0 +1,38 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+
+}
+body{
+    display:flex;
+    flex-direction:row;
+    width:100vw;
+    height:100vh;
+    
+
+}
+#left,#rigth{
+    display:flex;
+    flex-grow:1;
+    flex-direction:column;
+    justify-content:center;
+    
+
+}
+#pacman{
+    height:90vh;
+    display:flex;
+    align-items:center;
+}
+#sliders{
+    height:10vh;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+}
+#defaultCanvas1{
+    display:none;
+}
+
