@@ -9,14 +9,18 @@ body{
     flex-direction:row;
     width:100vw;
     height:100vh;
+    background-color:#4c4c4c;
+    color :white;
+    font-size:20px;
     
 
 }
 #left,#rigth{
     display:flex;
-    flex-grow:1;
     flex-direction:column;
+    width:50%;
     justify-content:center;
+    overflow:hidden;
     
 
 }
@@ -24,11 +28,14 @@ body{
     height:90vh;
     display:flex;
     align-items:center;
+    width:100%;
+    background-color:#5c5c5c;
 }
-#sliders{
+#sliders,#valores{
     z-index: 10;
     height:10vh;
     width:100%;
+
     display:flex;
     align-items:center;
     justify-content:space-around;
@@ -36,4 +43,11 @@ body{
 #defaultCanvas1{
     display:none;
 }
-
+#rigth{
+    background-color:#ffffff8f;
+    align-items:center;
+}
+#my_dataviz{
+    width:100%;
+    
+}

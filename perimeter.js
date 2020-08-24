@@ -1,16 +1,14 @@
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    	width = window.innerHeight*0.75*0.9 - margin.left - margin.right,
-    	height = window.innerHeight*0.5*0.9 - margin.top - margin.bottom;
-
+	    width =  document.getElementById("my_dataviz").clientWidth*0.75 - margin.left - margin.right,
+	    height = width - margin.top - margin.bottom;
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
-	.append("svg")
-    	.attr("width", width + margin.left + margin.right)
-    	.attr("height", height + margin.top + margin.bottom)
-  	.append("g")
-    	.attr("transform","translate(" + margin.left + "," + margin.top + ")");
-
+ var svg = d3.select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 var data=[]
 for (var i =0.05;i<=20;i+=0.05){
     const y=2*i+18/i;
@@ -22,7 +20,7 @@ for (var i =0.05;i<=20;i+=0.05){
   	// Add X axis --> it is a date format
 	var x = d3.scaleLinear()
     		.domain([0,20])
-    		.range([ 0, width ]);
+    		.range([ 0,  width]);
   	svg.append("g")
     		.attr("transform", "translate(0," + height + ")")
     		.call(d3.axisBottom(x));
@@ -44,7 +42,7 @@ for (var i =0.05;i<=20;i+=0.05){
       		.style("fill", "none")
       		.attr("stroke", "black")
       		.attr('r', 8.5)
-      		.style("opacity", 0)
+      		.style("opacity", 1);
 
   	// Create the text that travels along the curve of chart
  	var focusText = svg
@@ -85,20 +83,7 @@ for (var i =0.05;i<=20;i+=0.05){
   	}
 
   	function mousemove() {
-    		// recover coordinate we need
-    		var x0 = x.invert(d3.mouse(this)[0]);
-    		var i = bisect(data, x0, 1);
-		
-    		selectedData = data[i]
-    		focus
-      			.attr("cx", x(selectedData.x))
-      			.attr("cy", y(selectedData.y));
-    		focusText
-      			.html("Radio:" + selectedData.x + "  -  " + "Perimetro:" + selectedData.y)
-      			.attr("x", x(selectedData.x)+15)
-      			.attr("y", y(selectedData.y));
-		//chage sliders
-		radiusSlider.value(selectedData.x);
+
 
 
     	}
@@ -110,10 +95,12 @@ for (var i =0.05;i<=20;i+=0.05){
     		focus
       			.attr("cx", x(selectedData.x))
       			.attr("cy", y(selectedData.y));
-    		focusText
+    		
+		/*focusText
       			.html("Radio:" +Math.round(selectedData.x*10000)/10000 + "  -  " + "Perimetro:" +Math.round(selectedData.y*10000)/10000)
       			.attr("x", x(selectedData.x)+15)
       			.attr("y", y(selectedData.y));
+		*/
 		//chage sliders
 		radiusSlider.value(selectedData.x);
 
