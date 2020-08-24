@@ -51,7 +51,7 @@ let Sliders= function(sl){
 	    angleSlider.value(tempAngle)
 
 	}
-	//console.log("radius: ",PACMAN.radius,"angle: ",PACMAN.angle);
+	console.log("radius: ",PACMAN.radius,"angle: ",PACMAN.angle);
 	oldRadius=newRadius;
 	oldAngle=newAngle;
     }
